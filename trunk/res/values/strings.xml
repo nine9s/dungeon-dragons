@@ -40,4 +40,6 @@
   <string name="benchmark_help">Place images in /sdcard/zxingbenchmark, then check \"adb logcat\" for results. Turn on Airplane Mode first for more reliable results.</string>
   <string name="benchmark_run">Run benchmark</string>
   <string name="benchmark_running">Benchmark running...\u2026</string>
+    <string name="custom_dialog_activity_text">Please go to the starting position to start the Game</string>
+
 </resources>

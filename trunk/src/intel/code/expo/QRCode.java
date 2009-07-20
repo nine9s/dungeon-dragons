@@ -1,7 +1,4 @@
 package intel.code.expo;
-
-
-
 import java.io.ByteArrayOutputStream;
 import java.net.URI;
 
@@ -18,15 +15,40 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import java.util.List;
 
-public final class QRCode extends Activity {
+import android.app.TabActivity;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.TabHost;
+public final class QRCode extends TabActivity {
 	  private static final String TAG = "SearchBookContents";
 	  private static final String USER_AGENT = "ZXing/1.3 (Android)";
+	  int chkpt=0;
+	  boolean barrier_1=false;
+	  boolean barrier_2=false;
+
+	  
   @Override
   public void onCreate(Bundle icicle) {
     super.onCreate(icicle);
-    setContentView(R.layout.test);
+    TabHost tabHost = getTabHost();
+    
+    LayoutInflater.from(this).inflate(R.layout.tabs, tabHost.getTabContentView(), true);
+
+    tabHost.addTab(tabHost.newTabSpec("tab1")
+            .setIndicator("tab1")
+            .setContent(R.id.view1));
+    tabHost.addTab(tabHost.newTabSpec("tab3")
+            .setIndicator("tab2")
+            .setContent(R.id.view2));
+    tabHost.addTab(tabHost.newTabSpec("tab3")
+            .setIndicator("tab3")
+            .setContent(R.id.view3));
         View scan_qr_code = findViewById(R.id.scan_qr_code);
         scan_qr_code.setOnClickListener(mScanQRCode);
         View get_question = findViewById(R.id.preview_view);
