@@ -23,11 +23,14 @@ public final class R {
         public static final int screenshot_01=0x7f020002;
     }
     public static final class id {
+        public static final int answerEdit=0x7f050012;
         public static final int auto_focus=0x7f050000;
         public static final int benchmark_done=0x7f050001;
         public static final int benchmark_help=0x7f050007;
         public static final int benchmark_run=0x7f050006;
+        public static final int checkAnswer=0x7f050013;
         public static final int preview_view=0x7f050008;
+        public static final int questionLabel=0x7f050011;
         public static final int quit=0x7f050002;
         public static final int save=0x7f050003;
         public static final int save_failed=0x7f050005;
@@ -50,11 +53,11 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int benchmark_help=0x7f060015;
-        public static final int benchmark_name=0x7f060014;
-        public static final int benchmark_run=0x7f060016;
-        public static final int benchmark_running=0x7f060017;
-        public static final int custom_dialog_activity_text=0x7f060018;
+        public static final int benchmark_help=0x7f060016;
+        public static final int benchmark_name=0x7f060015;
+        public static final int benchmark_run=0x7f060017;
+        public static final int benchmark_running=0x7f060018;
+        public static final int custom_dialog_activity_text=0x7f060019;
         public static final int encode_bad_data=0x7f06000c;
         public static final int encode_contact=0x7f06000a;
         public static final int encode_email=0x7f060007;
@@ -62,6 +65,7 @@ public final class R {
         public static final int encode_phone=0x7f060008;
         public static final int encode_sms=0x7f060009;
         public static final int encode_url=0x7f060006;
+        public static final int question=0x7f060014;
         public static final int result_failed=0x7f06000d;
         public static final int result_failed_why=0x7f06000e;
         public static final int result_succeeded=0x7f06000f;
