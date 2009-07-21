@@ -47,7 +47,7 @@ public final class QRCode extends TabActivity {
     tabHost.addTab(tabHost.newTabSpec("tab1")
             .setIndicator("tab1")
             .setContent(R.id.view1));
-    tabHost.addTab(tabHost.newTabSpec("ta3")
+    tabHost.addTab(tabHost.newTabSpec("tab3")
             .setIndicator("tab2")
             .setContent(R.id.view2));
     tabHost.addTab(tabHost.newTabSpec("tab3")
