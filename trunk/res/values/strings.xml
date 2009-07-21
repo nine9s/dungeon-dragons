@@ -35,6 +35,7 @@
   <string name="save_succeeded">Save succeeded</string>
   <string name="save_failed">Save failed - is the SD card installed?</string>
   <string name="share_via_barcode">Share via barcode</string>
+  <string name="question">Share via barcode</string>
 
   <string name="benchmark_name">ZXing Benchmark</string>
   <string name="benchmark_help">Place images in /sdcard/zxingbenchmark, then check \"adb logcat\" for results. Turn on Airplane Mode first for more reliable results.</string>

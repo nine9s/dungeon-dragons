@@ -23,18 +23,22 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TabHost;
+import android.widget.TextView;
 public final class QRCode extends TabActivity {
 	  private static final String TAG = "SearchBookContents";
 	  private static final String USER_AGENT = "ZXing/1.3 (Android)";
 	  int chkpt=0;
 	  boolean barrier_1=false;
 	  boolean barrier_2=false;
-
-	  
+	  String answer="";
+	  EditText answerText;
+	  TextView questionLabel;
   @Override
-  public void onCreate(Bundle icicle) {
+  public void onCreate(Bundle icicle) 
+  {
     super.onCreate(icicle);
     TabHost tabHost = getTabHost();
     
@@ -53,6 +57,10 @@ public final class QRCode extends TabActivity {
         scan_qr_code.setOnClickListener(mScanQRCode);
         View get_question = findViewById(R.id.preview_view);
         get_question.setOnClickListener(mGetQuestion);
+        View check_answer = findViewById(R.id.checkAnswer);
+        check_answer.setOnClickListener(mcheckAnswer);
+        answerText= (EditText)findViewById(R.id.answerEdit);
+        questionLabel= (TextView)findViewById(R.id.questionLabel);
       }
   public final Button.OnClickListener mScanQRCode = new Button.OnClickListener() {
     public void onClick(View v) {
@@ -64,9 +72,19 @@ public final class QRCode extends TabActivity {
   public final Button.OnClickListener mGetQuestion = new Button.OnClickListener() {
 	    public void onClick(View v) {
 	      NetworkThread mNetWoNetworkThread=new NetworkThread();
-	      mNetWoNetworkThread.start();
+	      mNetWoNetworkThread.get();
 	    }
 	  };
+	  
+	  public final Button.OnClickListener mcheckAnswer = new Button.OnClickListener() {
+		    public void onClick(View v) {
+		      if(answerText.getText().toString().equalsIgnoreCase(answer))
+		    	  showDialog(R.string.question,"Correct");
+		      else
+		    	  showDialog(R.string.question,"Wrong");
+		      Log.e(TAG, "HTTP returned " + answerText.getText().toString()+":"+answer);   
+		    }
+		  };
    @Override
   public void onActivityResult(int requestCode, int resultCode, Intent intent) {
     if (requestCode == 0) {
@@ -88,34 +106,36 @@ public final class QRCode extends TabActivity {
     builder.setPositiveButton("OK", null);
     builder.show();
   }
-  private  final class NetworkThread extends Thread {
-	  @Override
-	    public void run() {
+  private  final class NetworkThread {
+	  
+	    public void get() {
 	      AndroidHttpClient client = null;
 	      try {
 	        // These return a JSON result which describes if and where the query was found. This API may
 	        // break or disappear at any time in the future. Since this is an API call rather than a
 	        // website, we don't use LocaleManager to change the TLD.
-	        URI uri = new URI("http", null, "68.181.237.10", -1, "/sendEmail.php", "vid=isbn" , null);
+	        URI uri = new URI("http", null, "207.151.247.51", -1, "/sendEmail.php", "vid=isbn" , null);
 	        HttpUriRequest get = new HttpGet(uri);
 	        client = AndroidHttpClient.newInstance(USER_AGENT);
 	        HttpResponse response = client.execute(get);
 	        if (response.getStatusLine().getStatusCode() == 200) {
 	          HttpEntity entity = response.getEntity();
 	          ByteArrayOutputStream jsonHolder = new ByteArrayOutputStream();
+	          
 	          entity.writeTo(jsonHolder);
 	          jsonHolder.flush();
+	          Log.e(TAG, "HTTP returned " + jsonHolder.toString(getEncoding(entity)) + " for " );
 	          JSONObject json = new JSONObject(jsonHolder.toString(getEncoding(entity)));
-	          showDialog(R.string.result_succeeded,(String)json.get("resumeID"));
+	          questionLabel.setText((String)json.get("question"));
+	          answer=(String)json.get("answer");
+	          //showDialog(R.string.question,(String)json.get("question"));
 	          jsonHolder.close();
-
-	        
-	        } else {
+	        } else 
+	        {
 	          Log.e(TAG, "HTTP returned " + response.getStatusLine().getStatusCode() + " for " + uri);
-	        
 	        }
 	      } catch (Exception e) {
-	        Log.e(TAG, e.toString());
+	        Log.e(TAG, "lol"+e.toString());
 	      
 	      } finally {
 	        if (client != null) {
