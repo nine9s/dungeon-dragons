@@ -56,31 +56,32 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int benchmark_help=0x7f060016;
-        public static final int benchmark_name=0x7f060015;
-        public static final int benchmark_run=0x7f060017;
-        public static final int benchmark_running=0x7f060018;
-        public static final int custom_dialog_activity_text=0x7f060019;
-        public static final int encode_bad_data=0x7f06000c;
-        public static final int encode_contact=0x7f06000a;
-        public static final int encode_email=0x7f060007;
-        public static final int encode_location=0x7f06000b;
-        public static final int encode_phone=0x7f060008;
-        public static final int encode_sms=0x7f060009;
-        public static final int encode_url=0x7f060006;
-        public static final int question=0x7f060014;
-        public static final int result_failed=0x7f06000d;
-        public static final int result_failed_why=0x7f06000e;
-        public static final int result_succeeded=0x7f06000f;
-        public static final int save_failed=0x7f060012;
-        public static final int save_succeeded=0x7f060011;
-        public static final int scan_anything=0x7f060001;
-        public static final int scan_product=0x7f060002;
-        public static final int scan_qr_code=0x7f060003;
-        public static final int search_book_contents=0x7f060004;
-        public static final int share_via_barcode=0x7f060013;
-        public static final int status_message=0x7f060010;
-        public static final int test_camera=0x7f060005;
+        public static final int benchmark_help=0x7f060017;
+        public static final int benchmark_name=0x7f060016;
+        public static final int benchmark_run=0x7f060018;
+        public static final int benchmark_running=0x7f060019;
+        public static final int custom_dialog_activity_text=0x7f06001a;
+        public static final int encode_bad_data=0x7f06000d;
+        public static final int encode_contact=0x7f06000b;
+        public static final int encode_email=0x7f060008;
+        public static final int encode_location=0x7f06000c;
+        public static final int encode_phone=0x7f060009;
+        public static final int encode_sms=0x7f06000a;
+        public static final int encode_url=0x7f060007;
+        public static final int question=0x7f060015;
+        public static final int result_failed=0x7f06000e;
+        public static final int result_failed_why=0x7f06000f;
+        public static final int result_succeeded=0x7f060010;
+        public static final int save_failed=0x7f060013;
+        public static final int save_succeeded=0x7f060012;
+        public static final int scan_anything=0x7f060002;
+        public static final int scan_product=0x7f060003;
+        public static final int scan_qr_code=0x7f060004;
+        public static final int search_book_contents=0x7f060005;
+        public static final int share_via_barcode=0x7f060014;
+        public static final int status_message=0x7f060011;
+        public static final int success_shape=0x7f060001;
+        public static final int test_camera=0x7f060006;
     }
     public static final class styleable {
         /** Attributes that can be used with a ViewfinderView.
