@@ -42,6 +42,7 @@ import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 public final class QRCode extends TabActivity{
 	  private static final String TAG = "SearchBookContents";
 	  private static final String USER_AGENT = "ZXing/1.3 (Android)";
@@ -49,7 +50,7 @@ public final class QRCode extends TabActivity{
 	  private Paint       mPaint;
 	  boolean barrier_1=false;
 	  boolean barrier_2=false;
-	 
+	 String shapeTobeDrawn="2:0--1:0--0:0--0:1--1:1--2:1--2:2--1:2--0:2";
 	Vector<Integer > rectangleLeftXCoordinates= new Vector<Integer>();
 	Vector<Integer > rectangleLeftYCoordinates= new Vector<Integer>();
 	 int rectangleStartX=50;
@@ -101,7 +102,7 @@ public final class QRCode extends TabActivity{
         answerText= (EditText)findViewById(R.id.answerEdit);
         questionLabel= (TextView)findViewById(R.id.questionLabel);
         myTts = new TTS(this, ttsInitListener, true);
- 
+        //showDialog(R.string.app_name,"lol");
   /*  setContentView(R.layout.touch_test);
     View topLayout = this.findViewById(R.id.layout_id);
     // register for events for the view, previously
@@ -112,7 +113,7 @@ public final class QRCode extends TabActivity{
 
   private TTS.InitListener ttsInitListener = new TTS.InitListener() {
       public void onInit(int version) {
-        myTts.speak("Welcome To Dungeons and Dragons, I am the new SCA a building trying to have some fun", 0, null);
+        myTts.speak("Hello Good evening Scott", 0, null);
       }
     };
 
@@ -160,7 +161,7 @@ public final class QRCode extends TabActivity{
   }
 
   
-  private void showDialog(int title, String message) {
+  public void showDialog(int title, String message) {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
     builder.setTitle(title);
     builder.setMessage(message);
@@ -185,13 +186,7 @@ public final class QRCode extends TabActivity{
           mCanvas = new Canvas(mBitmap);
           mPath = new Path();
           mBitmapPaint = new Paint(Paint.DITHER_FLAG);
-          for(int i=0;i<3;i++)
-        	  for(int j=0;j<3;j++)
-        	  {
-        		  int rectStartX=rectangleStartX+i*rectangleGapX;
-        		  int rectStartY=rectangleStartY+j*rectangleGapY;
-        		  mCanvas.drawRect(rectStartX,rectStartY,rectStartX+rectangeWidth,rectStartY+rectangeHeight,mBitmapPaint);
-        	  }
+          resetShapeTab();
       }
 
       @Override
@@ -252,22 +247,15 @@ public final class QRCode extends TabActivity{
       
       private void touch_start(float x, float y) {
           mPath.reset();
-          mCanvas.drawColor(0,Mode.CLEAR);
-          shapeDrawn="";
-          for(int i=0;i<3;i++)
-        	  for(int j=0;j<3;j++)
-        	  {
-        		  int rectStartX=rectangleStartX+i*rectangleGapX;
-        		  int rectStartY=rectangleStartY+j*rectangleGapY;
-        		  mCanvas.drawRect(rectStartX,rectStartY,rectStartX+rectangeWidth,rectStartY+rectangeHeight,mBitmapPaint);
-        	  }
-      
+          resetShapeTab();
           //mBitmap = Bitmap.createBitmap(320, 480, Bitmap.Config.ARGB_8888);
           //mCanvas = new Canvas(mBitmap);
-         if(! CheckIfTouchOnMarker(x,y))
+          determineShape(x,y);
+          if(!CheckIfTouchOnMarker(x,y))
         	 return;
          else
         	 startedDrawing=true;
+         
           mPath.moveTo(x, y);
           mX = x;
           mY = y;
@@ -278,11 +266,31 @@ public final class QRCode extends TabActivity{
           if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
         	  mPath.lineTo(x, y);
         	  determineShape(x,y);
+        	  if(shapeDrawn.equalsIgnoreCase(shapeTobeDrawn))
+        	  {
+        		 
+        		 showDialog(R.string.app_name,getString(R.string.success_shape));
+        		 resetShapeTab();
+        		// FrameLayout fl= (FrameLayout)findViewById(R.id.view2);
+        	    	//fl.removeView(this);
+        	  }
         	  Log.e(TAG, "HTTP returned " + shapeDrawn);
         	  //mPath.quadTo(mX, mY, (x + mX)/2, (y + mY)/2);
               mX = x;
               mY = y;
           }
+      }
+      private void resetShapeTab(){
+    	  mCanvas.drawColor(0,Mode.CLEAR);
+          shapeDrawn="";
+          inCheckPoint=false;
+          for(int i=0;i<3;i++)
+        	  for(int j=0;j<3;j++)
+        	  {
+        		  int rectStartX=rectangleStartX+i*rectangleGapX;
+        		  int rectStartY=rectangleStartY+j*rectangleGapY;
+        		  mCanvas.drawRect(rectStartX,rectStartY,rectStartX+rectangeWidth,rectStartY+rectangeHeight,mBitmapPaint);
+        	  }
       }
       private void touch_up() {
          // mPath.lineTo(mX, mY);
@@ -326,7 +334,7 @@ public final class QRCode extends TabActivity{
 	        // These return a JSON result which describes if and where the query was found. This API may
 	        // break or disappear at any time in the future. Since this is an API call rather than a
 	        // website, we don't use LocaleManager to change the TLD.
-	        URI uri = new URI("http", null, "207.151.247.51", -1, "/sendEmail.php", "" , null);
+	        URI uri = new URI("http", null, "198.147.127.41", -1, "/sendEmail.php", "" , null);
 	        HttpUriRequest get = new HttpGet(uri);
 	        client = AndroidHttpClient.newInstance(USER_AGENT);
 	        HttpResponse response = client.execute(get);

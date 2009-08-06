@@ -16,6 +16,7 @@
  -->
 <resources>
   <string name="app_name">Intel Design Expo</string>
+  <string name="success_shape">Congratulations That is the right shape</string>
   <string name="scan_anything">Scan anything</string>
   <string name="scan_product">Scan product</string>
   <string name="scan_qr_code">Scan QR Code</string>
