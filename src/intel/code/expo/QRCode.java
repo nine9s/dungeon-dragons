@@ -1,4 +1,5 @@
 package intel.code.expo;
+import com.google.tts.*;
 import android.view.MotionEvent;
 
 import java.io.ByteArrayOutputStream;
@@ -60,6 +61,7 @@ public final class QRCode extends TabActivity{
 	  String answer="";
 	  EditText answerText;
 	  TextView questionLabel;
+	  private TTS myTts;
   @Override
   public void onCreate(Bundle icicle) 
   {
@@ -98,6 +100,7 @@ public final class QRCode extends TabActivity{
         check_answer.setOnClickListener(mcheckAnswer);
         answerText= (EditText)findViewById(R.id.answerEdit);
         questionLabel= (TextView)findViewById(R.id.questionLabel);
+        myTts = new TTS(this, ttsInitListener, true);
  
   /*  setContentView(R.layout.touch_test);
     View topLayout = this.findViewById(R.id.layout_id);
@@ -107,7 +110,12 @@ public final class QRCode extends TabActivity{
         
       }
 
-  
+  private TTS.InitListener ttsInitListener = new TTS.InitListener() {
+      public void onInit(int version) {
+        myTts.speak("Welcome To Dungeons and Dragons, I am the new SCA a building trying to have some fun", 0, null);
+      }
+    };
+
   
   public final Button.OnClickListener mScanQRCode = new Button.OnClickListener() {
     public void onClick(View v) {
