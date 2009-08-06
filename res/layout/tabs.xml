@@ -23,11 +23,13 @@
         android:layout_height="fill_parent"
         android:text="Tab1"/>
 
-    <TextView android:id="@+id/view2"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="Tab2"/>
-
+<FrameLayout 
+android:id="@+id/view2"
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+</FrameLayout>
 <AbsoluteLayout
 android:id="@+id/view3"
 android:layout_width="fill_parent"
