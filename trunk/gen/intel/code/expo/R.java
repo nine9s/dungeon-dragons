@@ -21,6 +21,7 @@ public final class R {
         public static final int icon=0x7f020000;
         public static final int map=0x7f020001;
         public static final int screenshot_01=0x7f020002;
+        public static final int shape=0x7f020003;
     }
     public static final class id {
         public static final int answerEdit=0x7f050012;
@@ -29,6 +30,7 @@ public final class R {
         public static final int benchmark_help=0x7f050007;
         public static final int benchmark_run=0x7f050006;
         public static final int checkAnswer=0x7f050013;
+        public static final int layout_id=0x7f050014;
         public static final int preview_view=0x7f050008;
         public static final int questionLabel=0x7f050011;
         public static final int quit=0x7f050002;
@@ -50,6 +52,7 @@ public final class R {
         public static final int main=0x7f030002;
         public static final int tabs=0x7f030003;
         public static final int test=0x7f030004;
+        public static final int touch_test=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
