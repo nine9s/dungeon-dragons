@@ -1,47 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/tabhost"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ 
+    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        <TabWidget
-            android:id="@android:id/tabs"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-        <FrameLayout
-            android:id="@android:id/tabcontent"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            <TextView 
-                android:id="@+id/textview1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" 
-                android:text="this is a tab" />
-            <TextView 
-                android:id="@+id/textview2"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" 
-                android:text="this is another tab" />
-	  <TableRow>
-                android:id="@+id/textview3"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" 
-		             
-	    <Button android:id="@+id/scan_qr_code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/scan_qr_code"/>
-            
-            <Button android:id="@+id/preview_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Get Question"/>
-	  </TableRow>  
-    	</FrameLayout>
-    </LinearLayout>
-</TabHost>
+    android:layout_height="fill_parent"
+    >
 
-
+</AbsoluteLayout>

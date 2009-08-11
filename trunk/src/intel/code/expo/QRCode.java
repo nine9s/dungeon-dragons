@@ -92,7 +92,9 @@ public final class QRCode extends TabActivity{
     	//drawShape.setOnTouchListener(mTouchListener);
     	FrameLayout fl= (FrameLayout)findViewById(R.id.view2);
     	fl.addView(new MyView(this));
-    	
+        
+        //this.startActivityFromChild(PicturePuzzle., i, 1);
+        
         View scan_qr_code = findViewById(R.id.scan_qr_code);
         scan_qr_code.setOnClickListener(mScanQRCode);
         View get_question = findViewById(R.id.preview_view);
@@ -120,9 +122,12 @@ public final class QRCode extends TabActivity{
   
   public final Button.OnClickListener mScanQRCode = new Button.OnClickListener() {
     public void onClick(View v) {
-      Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-      intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-      startActivityForResult(intent, 0);
+     // Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+      //intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+      //startActivityForResult(intent, 0);
+    	Intent i = new Intent(QRCode.this, PicturePuzzle.class);
+    	startActivity(i);
+    	
     }
   };
   
