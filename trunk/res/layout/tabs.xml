@@ -18,10 +18,64 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <TextView android:id="@+id/view1"
-        android:layout_width="fill_parent"
+
+ <RelativeLayout 
+    android:id="@+id/view1"
+	android:orientation="vertical" 
+  	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"> 
+    
+    
+    
+    <TextView
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+    android:background="@drawable/event"
+    />
+    
+    
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    > 
+        
+   <Button android:id="@+id/two_buttons"
+         android:layout_width="0dip" 
+         android:layout_height="fill_parent"
+         android:text="@string/message"
+         android:layout_weight="1"
+        />
+
+    <TextView
+        android:text="Time Left:14:35 min"
+        android:background="@drawable/blue"
+        android:layout_width="0dip"
         android:layout_height="fill_parent"
-        android:text="Tab1"/>
+        android:layout_weight="1"
+       />
+
+    <TextView
+        android:background="@drawable/blue"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        />
+  
+   
+<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android" 
+style="?android:attr/progressBarStyleHorizontal" 
+android:id="@+id/progress_bar"
+android:layout_width="0dip" 
+android:layout_height="fill_parent"
+android:layout_weight="1"
+android:indeterminate="true" />
+ 
+</LinearLayout>  
+
+            
+   
+ </RelativeLayout>
 
 <FrameLayout 
 android:id="@+id/view2"
@@ -36,24 +90,6 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
-<Button
-android:id="@+id/scan_qr_code"
-android:layout_width="170px"
-android:layout_height="wrap_content"
-android:text="@string/scan_qr_code"
-android:layout_x="4px"
-android:layout_y="9px"
->
-</Button>
-<Button
-android:id="@+id/preview_view"
-android:layout_width="142px"
-android:layout_height="wrap_content"
-android:text="Get Question"
-android:layout_x="169px"
-android:layout_y="9px"
->
-</Button>
 <TextView
 android:id="@+id/questionLabel"
 android:layout_width="227px"

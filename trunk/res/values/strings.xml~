@@ -33,16 +33,6 @@
   <string name="result_failed_why">"The user gave up and pressed Back"</string>
   <string name="result_succeeded">Found barcode</string>
   <string name="status_message">Press the shutter button to save images to the SD card for testing purposes. Press DPAD_CENTER to trigger autofocus.</string>
-    <string name="hello">Hello World, test!</string>
-    
-    <string name="alert_dialog_two_buttons_title">
-        You have reached barrier number 3. Congrats..!
-    </string>  
-    <string name="alert_dialog_ok">OK</string>
-    <string name="message">Check for message</string>
-  <string name="alert_dialog_progress_button">Progress dialog</string>
-<string name="hp_title">HP</string>
-
   <string name="save_succeeded">Save succeeded</string>
   <string name="save_failed">Save failed - is the SD card installed?</string>
   <string name="share_via_barcode">Share via barcode</string>
