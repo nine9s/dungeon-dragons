@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-  
-
-	<TextView android:id="@+id/view2"
-        android:background="@drawable/barrier02"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-   />   
-   
-   <TextView android:id="@+id/view3"
-        android:background="@drawable/event"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-   />
-    
-        
-        
-
-  
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/view4"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -56,11 +33,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         />
-
-</LinearLayout>
+   
+   
    
    
 
 
   
-</RelativeLayout>
+</LinearLayout>

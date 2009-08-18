@@ -34,9 +34,9 @@ public class PicturePuzzle extends Activity {
 		super.onCreate(savedInstanceState);
 		blocks.clear();
 		Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
-				R.drawable.allpeople);
+				R.drawable.image);
 
-		Level level = LEVELS[0];
+		Level level = LEVELS[1];
 		Display display = getWindowManager().getDefaultDisplay();
 
 		bitmap = bitmap.createScaledBitmap(bitmap, display.getWidth(), display
