@@ -10,6 +10,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -67,7 +68,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.app.TabActivity;
 import android.widget.TabHost;
-
+import intel.code.expo.Game;
 public final class QRCode extends TabActivity {
 	private static final String TAG = "SearchBookContents";
 	private static final String USER_AGENT = "ZXing/1.3 (Android)";
@@ -298,6 +299,7 @@ public final class QRCode extends TabActivity {
 	public static final int GET_PICTURE_PUZZLE = Menu.FIRST + 3;
 
 	public static final int DRAW_SHAPE = Menu.FIRST + 4;
+	public static final int SOLVE_SUDOKU = Menu.FIRST + 5;
 	
 	/** create the menu items */
 	public void populateMenu(Menu menu) {
@@ -306,6 +308,7 @@ public final class QRCode extends TabActivity {
 		menu.add(0, SCAN_QR_CODE, 0, "SCAN QR CODE");
 		menu.add(0, GET_PICTURE_PUZZLE, 0, "GET PICTURE PUZZLE");
 		menu.add(0, DRAW_SHAPE, 0, "DRAW SHAPE");
+		menu.add(0, SOLVE_SUDOKU, 0, "SOLVE SUDOKU");
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -337,11 +340,20 @@ public final class QRCode extends TabActivity {
 			FrameLayout fl= (FrameLayout)findViewById(R.id.view2);
 			fl.addView(new MyView(this));
 			return true;
+		case SOLVE_SUDOKU:
+			startGame(Game.DIFFICULTY_HARD);
+			return true;
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
-
+	   /** Start a new game with the given difficulty level */
+	   private void startGame(int i) {
+	      Log.d(TAG, "clicked on " + i);
+	      Intent intent = new Intent(QRCode.this, Game.class);
+	      intent.putExtra(Game.KEY_DIFFICULTY, i);
+	      startActivity(intent);
+	   }
 	public class MyView extends View {
 
 		private static final float MINP = 0.25f;
