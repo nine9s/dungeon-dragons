@@ -308,7 +308,7 @@ public final class QRCode extends TabActivity {
 		menu.add(0, SCAN_QR_CODE, 0, "SCAN QR CODE");
 		menu.add(0, GET_PICTURE_PUZZLE, 0, "GET PICTURE PUZZLE");
 		menu.add(0, DRAW_SHAPE, 0, "DRAW SHAPE");
-		menu.add(0, SOLVE_SUDOKU, 0, "SOLVE SUDOKU");
+		menu.add(0, SOLVE_SUDOKU, 0, "DEFUSE BOMB");
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -341,7 +341,7 @@ public final class QRCode extends TabActivity {
 			fl.addView(new MyView(this));
 			return true;
 		case SOLVE_SUDOKU:
-			startGame(Game.DIFFICULTY_HARD);
+			startGame(Game.DIFFICULTY_MEDIUM);
 			return true;
 		}
 
